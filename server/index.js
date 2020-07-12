@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("Hello World"));
 app.use("/api/auth", routes.auth);
+app.use("/api/polls", routes.poll);
 
 app.use(handle.notFound);
 
