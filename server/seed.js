@@ -4,7 +4,7 @@ mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "mongodb://localhost/vote",
+  process.env.DATABASE,
   { useUnifiedTopology: true, useNewUrlParser: true },
   () => {
     console.log("Database connected");
