@@ -8,7 +8,7 @@ class CreatePoll extends Component {
     super(props);
     this.state = {
       question: "",
-      options: [""],
+      options: ["", ""],
     };
     this.handleChange = this.handleChange.bind(this);
     this.addAnswer = this.addAnswer.bind(this);
@@ -37,8 +37,9 @@ class CreatePoll extends Component {
   render() {
     const options = this.state.options.map((option, i) => (
       <Fragment key={i}>
-        <label>Options</label>
+        <label className="form-label">Options</label>
         <input
+          className="form-input"
           type="text"
           value={option}
           onChange={(e) => this.handleAnswer(e, i)}
@@ -46,9 +47,12 @@ class CreatePoll extends Component {
       </Fragment>
     ));
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="question"></label>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <label className="form-label" htmlFor="question">
+          Question
+        </label>
         <input
+          className="form-input"
           type="text"
           name="question"
           value={this.state.question}
@@ -56,10 +60,13 @@ class CreatePoll extends Component {
         />
 
         {options}
-        <button type="button" onClick={this.addAnswer}>
+        <div className="button_center"></div>
+        <button className="button" type="button" onClick={this.addAnswer}>
           Add Options
         </button>
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     );
   }
